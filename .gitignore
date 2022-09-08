@@ -1,4 +1,4 @@
 *.o
 *.vscode/
 *.split.h
-*.split.dSYM
+*./libasm.dSYM
