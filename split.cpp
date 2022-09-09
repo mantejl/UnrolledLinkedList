@@ -11,28 +11,32 @@ the function below should be the only one in this file.
 */
 
 #include "split.h"
+
 #include <iostream>
 /* Add a prototype for a helper function here if you need */
 
-void split(Node *&in, Node *&odds, Node *&evens)
-{
-  /* Add code here */
-  // WRITE YOUR CODE HERE
-if (in == nullptr) {
-    return;
-  } else
-  {
-    split(in->next, odds, evens);
-    if (in->value % 2 != 0)
-    {
-      in->next = odds;
-      odds = in;
-    } else if (in->value % 2 == 0)
-    {
-      in->next = evens;
-      evens = in;
+void split(Node*& in, Node*& odds, Node*& evens) {
+    /* Add code here */
+    // WRITE YOUR CODE HERE
+    if (in == nullptr) {
+        odds = nullptr;
+        evens = nullptr;
+
+        return;
+    } else {
+        if (in->value % 2 == 0) {
+
+            evens = in;
+
+            split(in->next, odds, in->next);
+        } else if (in->value % 2 != 0) {
+
+            odds = in;
+
+            split(in->next, in->next, evens);
+        }
     }
-  }
 }
-  /* If you needed a helper function, write it here */
-  // WRITE YOUR CODE HERE
+
+/* If you needed a helper function, write it here */
+// WRITE YOUR CODE HERE
