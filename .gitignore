@@ -2,3 +2,6 @@
 *.vscode/
 *.split.h
 split.dSYM/
+*.dSYM/
+split
+ulliststr_test
